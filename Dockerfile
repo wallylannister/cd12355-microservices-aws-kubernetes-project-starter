@@ -3,6 +3,7 @@ FROM python:3.10-slim-buster
 # Install Postgres and configure a username + password
 # USER root
 
+# Arguments to pass in run-time should it be nesessary
 ARG DB_USERNAME=$DB_USERNAME
 ARG DB_PASSWORD=$DB_PASSWORD
 
@@ -33,6 +34,5 @@ RUN pip install -r requirements.txt
 
 COPY ./analytics .
 
-# Start the database and Flask application
 # CMD service postgresql start && python app.py
 CMD python app.py
